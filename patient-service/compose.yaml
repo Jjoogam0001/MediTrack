@@ -25,10 +25,15 @@ services:
       postgres:
         condition: service_healthy
     environment:
-      - 'SPRING_PROFILES_ACTIVE=prod'
+      - 'SPRING_PROFILES_ACTIVE=docker'
       - 'SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/patient_service_db'
       - 'SPRING_DATASOURCE_USERNAME=postgres'
       - 'SPRING_DATASOURCE_PASSWORD=secret'
+      - 'SPRING_JPA_HIBERNATE_DDL_AUTO=update'
+      - 'SPRING_JPA_SHOW_SQL=true'
+      - 'SPRING_JPA_PROPERTIES_HIBERNATE_FORMAT_SQL=true'
+      - 'SPRING_JPA_PROPERTIES_HIBERNATE_USE_SQL_COMMENTS=true'
+      - 'SPRING_DOCKER_COMPOSE_ENABLED=true'
 
   prometheus:
     image: prom/prometheus:latest
