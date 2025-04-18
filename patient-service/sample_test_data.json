@@ -1,0 +1,230 @@
+[
+  {
+    "medicalRecordNumber": "MRN12345",
+    "firstName": "John",
+    "lastName": "Doe",
+    "dateOfBirth": "1980-01-15",
+    "gender": "Male",
+    "address": {
+      "street": "123 Main St",
+      "city": "Boston",
+      "state": "MA",
+      "zipCode": "02108",
+      "country": "USA"
+    },
+    "contactInfo": {
+      "phoneNumber": "+1 555-123-4567",
+      "email": "john.doe@example.com",
+      "alternativePhoneNumber": "+1 555-987-6543"
+    },
+    "emergencyContacts": [
+      {
+        "name": "Jane Doe",
+        "relationship": "Spouse",
+        "phoneNumber": "+1 555-234-5678",
+        "email": "jane.doe@example.com",
+        "address": {
+          "street": "123 Main St",
+          "city": "Boston",
+          "state": "MA",
+          "zipCode": "02108",
+          "country": "USA"
+        }
+      }
+    ],
+    "insuranceInfo": {
+      "provider": "Blue Cross",
+      "policyNumber": "BC123456789",
+      "groupNumber": "GRP987654",
+      "policyHolderName": "John Doe",
+      "effectiveDate": "2023-01-01",
+      "expirationDate": "2024-12-31",
+      "coverageType": "Family"
+    }
+  },
+  {
+    "medicalRecordNumber": "MRN67890",
+    "firstName": "Jane",
+    "lastName": "Smith",
+    "dateOfBirth": "1985-05-20",
+    "gender": "Female",
+    "address": {
+      "street": "456 Oak Ave",
+      "city": "New York",
+      "state": "NY",
+      "zipCode": "10001",
+      "country": "USA"
+    },
+    "contactInfo": {
+      "phoneNumber": "+1 555-345-6789",
+      "email": "jane.smith@example.com",
+      "alternativePhoneNumber": null
+    },
+    "emergencyContacts": [
+      {
+        "name": "John Smith",
+        "relationship": "Spouse",
+        "phoneNumber": "+1 555-456-7890",
+        "email": "john.smith@example.com",
+        "address": {
+          "street": "456 Oak Ave",
+          "city": "New York",
+          "state": "NY",
+          "zipCode": "10001",
+          "country": "USA"
+        }
+      }
+    ],
+    "insuranceInfo": {
+      "provider": "Aetna",
+      "policyNumber": "AET987654321",
+      "groupNumber": "GRP123456",
+      "policyHolderName": "Jane Smith",
+      "effectiveDate": "2023-01-01",
+      "expirationDate": "2024-12-31",
+      "coverageType": "Individual"
+    }
+  },
+  {
+    "medicalRecordNumber": "MRN24680",
+    "firstName": "Robert",
+    "lastName": "Johnson",
+    "dateOfBirth": "1975-08-30",
+    "gender": "Male",
+    "address": {
+      "street": "789 Pine Blvd",
+      "city": "Chicago",
+      "state": "IL",
+      "zipCode": "60601",
+      "country": "USA"
+    },
+    "contactInfo": {
+      "phoneNumber": "+1 555-567-8901",
+      "email": "robert.johnson@example.com",
+      "alternativePhoneNumber": "+1 555-678-9012"
+    },
+    "emergencyContacts": [
+      {
+        "name": "Mary Johnson",
+        "relationship": "Spouse",
+        "phoneNumber": "+1 555-789-0123",
+        "email": "mary.johnson@example.com",
+        "address": {
+          "street": "789 Pine Blvd",
+          "city": "Chicago",
+          "state": "IL",
+          "zipCode": "60601",
+          "country": "USA"
+        }
+      },
+      {
+        "name": "James Johnson",
+        "relationship": "Son",
+        "phoneNumber": "+1 555-890-1234",
+        "email": "james.johnson@example.com",
+        "address": {
+          "street": "101 College Ave",
+          "city": "Chicago",
+          "state": "IL",
+          "zipCode": "60615",
+          "country": "USA"
+        }
+      }
+    ],
+    "insuranceInfo": {
+      "provider": "Cigna",
+      "policyNumber": "CIG246810",
+      "groupNumber": "GRP135790",
+      "policyHolderName": "Robert Johnson",
+      "effectiveDate": "2023-01-01",
+      "expirationDate": "2024-12-31",
+      "coverageType": "Family"
+    }
+  },
+  {
+    "medicalRecordNumber": "MRN13579",
+    "firstName": "Emily",
+    "lastName": "Williams",
+    "dateOfBirth": "1990-03-25",
+    "gender": "Female",
+    "address": {
+      "street": "321 Maple Dr",
+      "city": "Los Angeles",
+      "state": "CA",
+      "zipCode": "90001",
+      "country": "USA"
+    },
+    "contactInfo": {
+      "phoneNumber": "+1 555-901-2345",
+      "email": "emily.williams@example.com",
+      "alternativePhoneNumber": null
+    },
+    "emergencyContacts": [
+      {
+        "name": "Michael Williams",
+        "relationship": "Father",
+        "phoneNumber": "+1 555-012-3456",
+        "email": "michael.williams@example.com",
+        "address": {
+          "street": "654 Cedar Ln",
+          "city": "San Diego",
+          "state": "CA",
+          "zipCode": "92101",
+          "country": "USA"
+        }
+      }
+    ],
+    "insuranceInfo": {
+      "provider": "UnitedHealthcare",
+      "policyNumber": "UHC135792",
+      "groupNumber": "GRP246813",
+      "policyHolderName": "Emily Williams",
+      "effectiveDate": "2023-01-01",
+      "expirationDate": "2024-12-31",
+      "coverageType": "Individual"
+    }
+  },
+  {
+    "medicalRecordNumber": "MRN97531",
+    "firstName": "David",
+    "lastName": "Brown",
+    "dateOfBirth": "1965-11-10",
+    "gender": "Male",
+    "address": {
+      "street": "987 Elm St",
+      "city": "Houston",
+      "state": "TX",
+      "zipCode": "77001",
+      "country": "USA"
+    },
+    "contactInfo": {
+      "phoneNumber": "+1 555-123-9876",
+      "email": "david.brown@example.com",
+      "alternativePhoneNumber": "+1 555-987-1234"
+    },
+    "emergencyContacts": [
+      {
+        "name": "Susan Brown",
+        "relationship": "Spouse",
+        "phoneNumber": "+1 555-234-9876",
+        "email": "susan.brown@example.com",
+        "address": {
+          "street": "987 Elm St",
+          "city": "Houston",
+          "state": "TX",
+          "zipCode": "77001",
+          "country": "USA"
+        }
+      }
+    ],
+    "insuranceInfo": {
+      "provider": "Humana",
+      "policyNumber": "HUM975310",
+      "groupNumber": "GRP864209",
+      "policyHolderName": "David Brown",
+      "effectiveDate": "2023-01-01",
+      "expirationDate": "2024-12-31",
+      "coverageType": "Family"
+    }
+  }
+]

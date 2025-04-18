@@ -1,0 +1,57 @@
+# Ignore target directory (Java build output)
+target/
+
+# Ignore IDE and editor specific files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Ignore temporary and log files
+*.tmp
+*.log
+
+# Ignore version control directories
+.git/
+.svn/
+.hg/
+
+# Ignore environment and secret files
+.env*
+*.pem
+*.key
+*.crt
+
+# Ignore documentation and markdown files
+*.md
+README*
+
+# Ignore Docker-related files
+Dockerfile*
+docker-compose*
+
+# Ignore test and development artifacts
+test/
+tests/
+
+# Ignore other build outputs
+dist/
+build/
+out/
+
+# Ignore Java-specific files
+*.class
+.gradle/
+
+# Ignore empty directories
+**/.empty
+
+# Ignore specific project directories
+logs/
+local/
+
+# Ensure the Dockerfile and necessary files are included
+!Dockerfile
+!compose.yaml
+!src/**
+!pom.xml
