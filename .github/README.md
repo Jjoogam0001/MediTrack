@@ -1,62 +1,67 @@
 # GitHub Actions Workflows
 
-This directory contains GitHub Actions workflows for automating the build, test, and deployment process for the MediTrack patient-service.
+This directory contains GitHub Actions workflows for automating various tasks in the MediTrack project.
 
 ## Available Workflows
 
-### 1. Integration and Unit Tests Pipeline (GitFlow)
+### Integration and Unit Tests
 
-**File:** `.github/workflows/test-pipeline.yml`
+**File:** [test-pipeline.yml](./workflows/test-pipeline.yml)
 
-This workflow is designed for the development process and focuses on:
-1. Running unit tests
-2. Running integration tests
-3. Generating test reports
+This workflow is designed for the GitFlow development process, focusing on running tests for feature branches and pull requests.
 
 **Triggers:**
-- Pushes to the `develop` branch
-- Pushes to any `feature/*` branch
+- Push to the `develop` branch
+- Push to any `feature/*` branch
 - Pull requests to `develop`, `feature/*`, or `release/*` branches
-- Manual triggers via the GitHub Actions UI
+- Manual trigger via GitHub Actions UI
 
-### 2. Docker Build and Publish Pipeline
+**Jobs:**
+1. **Unit Tests**: Runs all unit tests and uploads test results
+2. **Integration Tests**: Runs all integration tests and uploads test results
+3. **Test Report**: Generates a comprehensive test report combining both test types
 
-**File:** `.github/workflows/docker-publish.yml`
+**Artifacts:**
+- Unit test results
+- Integration test results
+- Combined test reports
 
-This workflow focuses on the deployment process:
-1. Building the Java application
-2. Running tests
-3. Building a Docker image
-4. Pushing the Docker image to DockerHub
+This workflow helps ensure code quality during development by running tests early and often, before code is merged to main production branches.
+
+### Docker Build, Test and Publish
+
+**File:** [docker-publish.yml](./workflows/docker-publish.yml)
+
+This workflow automates the process of building, testing, and publishing the Docker image for the patient-service to DockerHub.
 
 **Triggers:**
-- Pushes to the `main` branch
+- Push to the `main` branch
 - Pull requests to the `main` branch
-- Manual triggers via the GitHub Actions UI
+- Manual trigger via GitHub Actions UI
 
-### 3. Makefile CI
+**Steps:**
+1. Checkout the repository
+2. Set up JDK 17
+3. Build and test the application with Maven
+4. Login to Docker Hub (skipped for pull requests)
+5. Build and push the Docker image to DockerHub (only pushes for non-pull request events)
 
-**File:** `.github/workflows/makefile.yml`
+**Docker Image Tags:**
+- `latest`: Always points to the most recent successful build from the main branch
+- `v{major}.{minor}.{patch}`: Semantic version tag automatically determined based on branch type:
+  - Feature branches (`feature/*`): Increment major version (e.g., v1.0.0 → v2.0.0)
+  - Develop branch: Increment minor version (e.g., v1.0.0 → v1.1.0)
+  - Fix branches (`fix/*`): Increment patch version (e.g., v1.0.0 → v1.0.1)
+- `<commit-sha>`: Unique tag for each build, using the Git commit SHA
 
-This workflow uses the Makefile targets to:
-1. Run unit tests
-2. Run integration tests
-3. Generate test reports
-4. Build and push Docker images
+## Required Secrets
 
-**Triggers:**
-- Pushes to the `main` and `develop` branches
-- Pull requests to the `main` and `develop` branches
-- Manual triggers via the GitHub Actions UI
-
-## Required Setup
-
-Before the workflows can push images to DockerHub, you need to set up the following secrets in your GitHub repository:
+To use the Docker publishing workflow, you need to set up the following secrets in your GitHub repository:
 
 1. `DOCKERHUB_USERNAME`: Your DockerHub username
 2. `DOCKERHUB_TOKEN`: A DockerHub access token (not your password)
 
-### Setting Up DockerHub Secrets
+### How to set up DockerHub secrets:
 
 1. Generate a DockerHub access token:
    - Log in to [DockerHub](https://hub.docker.com/)
@@ -69,3 +74,14 @@ Before the workflows can push images to DockerHub, you need to set up the follow
    - Navigate to Settings > Secrets and variables > Actions
    - Click "New repository secret"
    - Add both `DOCKERHUB_USERNAME` and `DOCKERHUB_TOKEN` secrets
+
+## Customization
+
+To customize the Docker image name or tag, modify the environment variables in the workflow file:
+
+```yaml
+env:
+  REGISTRY: docker.io
+  IMAGE_NAME: martin2020i/patient-service
+  IMAGE_TAG: latest
+```
