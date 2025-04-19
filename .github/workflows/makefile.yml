@@ -34,7 +34,7 @@ jobs:
       run: make test-report
 
     - name: Upload test report
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v3.1.0
       with:
         name: test-report
         path: patient-service/target/site/
