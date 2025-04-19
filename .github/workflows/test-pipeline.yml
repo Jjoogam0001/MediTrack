@@ -73,7 +73,7 @@ jobs:
         run: ./mvnw clean test
 
       - name: Upload unit test results
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v3.1.0
         if: always()
         with:
           name: unit-test-results
@@ -100,7 +100,7 @@ jobs:
         run: ./mvnw failsafe:integration-test failsafe:verify
 
       - name: Upload integration test results
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v3.1.0
         if: always()
         with:
           name: integration-test-results
@@ -140,7 +140,7 @@ jobs:
         run: ./mvnw surefire-report:report-only
 
       - name: Upload test report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v3.1.0
         with:
           name: test-report
           path: patient-service/target/site/
