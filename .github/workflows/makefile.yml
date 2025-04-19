@@ -38,6 +38,7 @@ jobs:
       with:
         name: test-report
         path: patient-service/target/site/
+        retention-days: 7
 
   docker:
     needs: build
