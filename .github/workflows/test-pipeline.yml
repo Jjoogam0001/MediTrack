@@ -28,12 +28,12 @@ jobs:
           # Get the latest tag
           LATEST_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "v0.0.0")
           echo "Latest tag: $LATEST_TAG"
-          
+
           # Extract version components
           MAJOR=$(echo $LATEST_TAG | sed -E 's/v([0-9]+)\.[0-9]+\.[0-9]+/\1/')
           MINOR=$(echo $LATEST_TAG | sed -E 's/v[0-9]+\.([0-9]+)\.[0-9]+/\1/')
           PATCH=$(echo $LATEST_TAG | sed -E 's/v[0-9]+\.[0-9]+\.([0-9]+)/\1/')
-          
+
           # Determine branch type and increment appropriate version component
           BRANCH_NAME=${GITHUB_REF#refs/heads/}
           if [[ $BRANCH_NAME == feature/* ]]; then
@@ -49,7 +49,7 @@ jobs:
             NEW_TAG="v$MAJOR.$MINOR.$((PATCH+1))"
             echo "Branch type: other - incrementing patch version"
           fi
-          
+
           echo "New tag: $NEW_TAG"
           echo "version=$NEW_TAG" >> $GITHUB_OUTPUT
 
@@ -78,6 +78,7 @@ jobs:
         with:
           name: unit-test-results
           path: patient-service/target/surefire-reports/
+          retention-days: 7
 
   integration-tests:
     name: Run Integration Tests
@@ -104,6 +105,7 @@ jobs:
         with:
           name: integration-test-results
           path: patient-service/target/failsafe-reports/
+          retention-days: 7
 
   test-report:
     name: Generate Test Report
@@ -142,3 +144,4 @@ jobs:
         with:
           name: test-report
           path: patient-service/target/site/
+          retention-days: 7
